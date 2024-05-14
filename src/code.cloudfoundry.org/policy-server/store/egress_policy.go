@@ -10,7 +10,7 @@ import (
 
 type EgressPolicyTable struct {
 	Conn  Database
-	Guids guidGenerator
+	Guids *GuidGenerator
 }
 
 func (e *EgressPolicyTable) CreateApp(tx db.Transaction, sourceTerminalGUID, appGUID string) error {
@@ -281,11 +281,11 @@ func (e *EgressPolicyTable) convertRowsToEgressPolicies(rows sqlRows) ([]EgressP
 		if ok {
 			policy := policiesToReturn[foundIndex]
 			policy.Destination.Rules = append(policy.Destination.Rules, EgressDestinationRule{
-				Protocol: *protocol,
-				Ports:    ports,
-				IPRanges: []IPRange{{Start: *startIP, End: *endIP}},
-				ICMPType: icmpType,
-				ICMPCode: icmpCode,
+				Protocol:    *protocol,
+				Ports:       ports,
+				IPRanges:    []IPRange{{Start: *startIP, End: *endIP}},
+				ICMPType:    icmpType,
+				ICMPCode:    icmpCode,
 				Description: *ruleDescription,
 			})
 			policiesToReturn[foundIndex] = policy
@@ -329,8 +329,8 @@ func (e *EgressPolicyTable) convertRowsToEgressPolicies(rows sqlRows) ([]EgressP
 									End:   *endIP,
 								},
 							},
-							ICMPType: icmpType,
-							ICMPCode: icmpCode,
+							ICMPType:    icmpType,
+							ICMPCode:    icmpCode,
 							Description: *ruleDescription,
 						},
 					},

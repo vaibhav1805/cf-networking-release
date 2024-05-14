@@ -24,7 +24,7 @@ var _ = Describe("external connectivity", func() {
 	)
 
 	BeforeEach(func() {
-		if testConfig.Internetless {
+		if testConfig.Internetless || testConfig.SkipExperimentalDynamicEgressTest {
 			Skip("skipping external connectivity tests")
 		}
 

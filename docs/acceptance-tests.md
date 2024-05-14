@@ -14,6 +14,7 @@ cat << EOF > $CONFIG
   "admin_secret": "secret",
   "apps_domain": "cf.domain",
   "default_security_groups": [ "dns", "public_networks" ],
+  "skip_experimental_dynamic_egress_tests": true,
   "skip_ssl_validation": true,
   "test_app_instances": 2,
   "test_applications": 2,

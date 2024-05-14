@@ -26,4 +26,5 @@ type Config struct {
 	SkipSpaceDeveloperPolicyTest         bool     `json:"skip_space_developer_policy_test"`
 	SkipSearchDomainTests                bool     `json:"skip_search_domain_tests"`
 	SkipSSLValidation                    bool     `json:"skip_ssl_validation"`
+	SkipExperimentalDynamicEgressTest    bool     `json:"skip_experimental_dynamic_egress_tests"`
 }

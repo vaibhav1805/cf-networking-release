@@ -68,10 +68,11 @@ var _ = Describe("PolicyCleaner", func() {
 
 		fakeUAAClient.GetTokenReturns("valid-token", nil)
 		fakeStore.AllReturns(c2cPolicies, nil)
+		fakeCCClient.GetLiveSpaceGUIDsReturns(map[string]struct{}{"live-egress-space-guid": {}}, nil)
 		fakeCCClient.GetLiveAppGUIDsStub = func(token string, appGUIDs []string) (map[string]struct{}, error) {
 			liveGUIDs := make(map[string]struct{})
 			for _, guid := range appGUIDs {
-				if guid == "live-guid" {
+				if guid == "live-guid" || guid == "live-egress-app-guid" {
 					liveGUIDs[guid] = struct{}{}
 				}
 			}
@@ -79,7 +80,7 @@ var _ = Describe("PolicyCleaner", func() {
 		}
 	})
 
-	It("Deletes c2c policies that reference apps that do not exist", func() {
+	It("Deletes c2c and egress policies that reference apps that do not exist", func() {
 		deletedPolicies, err := policyCleaner.DeleteStalePolicies()
 		Expect(err).NotTo(HaveOccurred())
 

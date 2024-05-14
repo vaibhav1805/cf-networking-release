@@ -60,6 +60,7 @@ var _ = Describe("Garden External Networker errors", func() {
 			"--handle=some-container-handle",
 			"--configFile=" + fakeConfigFilePath,
 		}
+		command.Env = []string{"PATH=/sbin"}
 
 		command.Stdin = strings.NewReader(fmt.Sprintf(`{ "pid": %d }`, GinkgoParallelProcess()))
 	})

@@ -11,7 +11,7 @@ import (
 	"code.cloudfoundry.org/cf-networking-helpers/testsupport"
 	"code.cloudfoundry.org/cf-networking-helpers/testsupport/metrics"
 	"code.cloudfoundry.org/cf-networking-helpers/testsupport/ports"
-	"code.cloudfoundry.org/lager/lagertest"
+	"code.cloudfoundry.org/lager/v3/lagertest"
 	"code.cloudfoundry.org/policy-server/config"
 	"code.cloudfoundry.org/policy-server/integration/helpers"
 	"code.cloudfoundry.org/policy-server/psclient"

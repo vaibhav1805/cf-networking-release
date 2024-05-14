@@ -8,7 +8,7 @@ import (
 	dbHelper "code.cloudfoundry.org/cf-networking-helpers/db"
 	dbfakes "code.cloudfoundry.org/cf-networking-helpers/db/fakes"
 	"code.cloudfoundry.org/cf-networking-helpers/testsupport"
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 	"code.cloudfoundry.org/policy-server/store"
 	testhelpers "code.cloudfoundry.org/test-helpers"
 	uuid "github.com/nu7hatch/gouuid"

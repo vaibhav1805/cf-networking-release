@@ -3,7 +3,7 @@ package store
 import "code.cloudfoundry.org/cf-networking-helpers/db"
 
 type TerminalsTable struct {
-	Guids guidGenerator
+	Guids *GuidGenerator
 }
 
 func (t *TerminalsTable) Create(tx db.Transaction) (string, error) {

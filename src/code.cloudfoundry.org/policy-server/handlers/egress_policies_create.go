@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"code.cloudfoundry.org/lager"
+	"code.cloudfoundry.org/lager/v3"
 	"code.cloudfoundry.org/policy-server/store"
 )
 
